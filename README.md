@@ -27,7 +27,7 @@ https://www.arduino.cc/
 
 3. compile and install the arduino sketch
 
-# Porject
+# project
 
 The full project description and build  instruction can be found on "hackaday.io" project:
 https://hackaday.io/project/161589-the-well-tempered-chaos-sequencer 
