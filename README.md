@@ -21,11 +21,6 @@ for preparing the arudino:
 1. download ans install the Arduino-IDE
 https://www.arduino.cc/
 
-2. make sure the following libraries are available for the Arduino-IDE:
-	- onewire
-	- twowire
-
-3. compile and install the arduino sketch
 
 # project
 
