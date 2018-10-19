@@ -58,6 +58,12 @@ channel_width = (Ball_raduis+wall_thinkness)*2;
 channel_mid = wall_thinkness;
 
 
+// spiral rotation
+
+// spiral_rotation = 1 // clockwise
+spiral_rotation = -1 // anti-clockwise
+
+
 // debug
 shift_factor = 0.1;
 debug_eliv = 0;
