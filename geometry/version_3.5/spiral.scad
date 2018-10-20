@@ -58,14 +58,10 @@ channel_width = (Ball_raduis+wall_thinkness)*2;
 channel_mid = wall_thinkness;
 
 
-// rotation direction of sprial values
+// spiral rotation
 
 // spiral_rotation = 1; // clockwise
 spiral_rotation = -1; // anti-clockwise
-
-// boolen value to rpin sprila holder
-print_holder = 1;
-
 
 
 // debug
@@ -81,10 +77,8 @@ debug_eliv = 0;
 translate([247.15,size_y+Ball_raduis*3+wall_thinkness+0.25,wall_thinkness+Ball_raduis*3+size_z/2])
 rotate(a = -90, v = [0, 1, 0])
 
-difference(){
-
-    union(){
-
+union(){
+    difference(){
 
         // spiral
         steps_factor = 16;
@@ -93,59 +87,29 @@ difference(){
         for ( z = [1:240*steps_factor]){
             rotate(z*2*spiral_rotation) translate([0,0,z/steps_factor])
             rotate([90,0,0])
-                cube(size = [Ball_raduis*3-0.5,5,1], center = false);
+                cube(size = [Ball_raduis*3,5,1], center = false);
         }
-
-        //center cylinder
-        color([1,0,0])
-        translate([0,0,-7+Ball_raduis])
-            cylinder(h=250,r=Ball_raduis,$fn=50);
         
-        //rounded top
-        translate([0,0,240+11-5])
-            sphere(r=Ball_raduis,$fn=50);
-       
-    }        
+        // PUSH BACK SIRAPL TO MAKE FOR BEARING HEAD
+        translate([-20,-20,-7]) 
+            cube([60,60,5]);
 
-    // PUSH BACK SIRAPL TO MAKE FOR BEARING HEAD
-    translate([-30,-30,-7]) 
-        cube([60,60,5]);
-
-    //center hole FOR BOTTOM PIN BEARING HOLE
-    translate([0,0,-10])
-        cylinder(h=260,r=1.2,$fn=50);;
-
-}
-
-
-////////////////////////////////////////////
-// holdinG geometry
-////////////////////////////////////////////
-
-if(print_holder){
+        //center hole FOR BOTTOM PIN BEARING HOLE
+        translate([0,0,0])
+            cylinder(h=250,r=1.2,$fn=50);
     
-    translate([247.15,size_y+Ball_raduis*3+wall_thinkness+0.25,wall_thinkness+Ball_raduis*3+size_z/2])
-    rotate(a = -90, v = [0, 1, 0])
-    
-    difference(){
-        
-        union(){
-         
-            //center cylinder
-            color([1,0,0])
-            translate([0,0,-2])
-                cylinder(h=250,r=Ball_raduis*3-0.25+wall_thinkness,$fn=50);
-
-            // bottom cube
-            translate([-25,-25,-2]) 
-                cube([50,50,30]);
             
-            }
-            
-            //center cylinder
-            color([1,0,0])
-            translate([0,0,-7+Ball_raduis])
-                cylinder(h=250,r=Ball_raduis*3-0.5+0.5,$fn=50);        
-        
     }
+    
+
+    //center cylinder
+    translate([0,0,0])cylinder(h=240+6,r=Ball_raduis,$fn=50);
+    
+    //rounded top
+    translate([0,0,240+11-5])
+        sphere(r=Ball_raduis,$fn=50);
+    
+
+
 }
+
