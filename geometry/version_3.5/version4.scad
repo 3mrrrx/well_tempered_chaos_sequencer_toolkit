@@ -168,7 +168,7 @@ difference(){
     for (y = [wall_thinkness+Ball_raduis*4-2:Ball_raduis*4*factor_pins+2:size_y-wall_thinkness-Ball_raduis*2]){
         
         i = x*y; // generate index for random vector
-        randum_pillar(x,y,random_vec[i] ,size_z,floor(randum_vec[i]+2));
+        randum_pillar(x,y,random_vec[i] ,size_z,floor(random_vec[i]+2));
     
     }
     
