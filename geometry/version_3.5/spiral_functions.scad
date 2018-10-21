@@ -17,8 +17,11 @@ module create_spiral_tubeing(Ball_raduis,wall_thinkness,size_x,size_y,size_z,cha
         
         // top
         shift_top_r = Ball_raduis*2*shift_factor;
-        translate([0,shift_top_r,0]) 
+        translate([2,shift_top_r-1,0]) 
         translate([wall_thinkness,size_y/2,wall_thinkness+debug_eliv*2]) 
+                rotate(1,[1,0,0])
+
+        rotate(3,[0,0,1])
         scale([Ball_raduis*2,size_y/2+channel_width/2-shift_top_r+Ball_raduis*3+wall_thinkness*2+tole*1.5,size_z+wall_thinkness*2+20]) 
             cube(1);
         

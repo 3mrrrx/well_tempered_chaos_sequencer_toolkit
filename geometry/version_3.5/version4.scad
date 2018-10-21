@@ -121,24 +121,22 @@ difference(){
     ////////////////////////////////
         
     // CNY70 heads                
-    // pin_heads (wall_thinkness,channel_size,cascades_lengths,break_factor,break_angel,size_x,size_y,size_z,Ball_raduis, size = 2.7, scale_x=1);
+    pin_heads (wall_thinkness,channel_size,cascades_lengths,break_factor,break_angel,size_x,size_y,size_z,Ball_raduis, size = 3.6, scale_x=1);
 
     // doubleholes jumper cable bin heads
-    translate([0,1.1,0])
-        pin_heads (wall_thinkness,channel_size,cascades_lengths,break_factor,break_angel,size_x,size_y,size_z,Ball_raduis, size = 1.4, scale_x=1);
-    
-    translate([0,-1.1,0])
-        pin_heads (wall_thinkness,channel_size,        cascades_lengths,break_factor,break_angel,size_x,size_y,size_z,Ball_raduis, size = 1.4, scale_x=1);                  
+//    translate([0,1.1,0])
+//        pin_heads (wall_thinkness,channel_size,cascades_lengths,break_factor,break_angel,size_x,size_y,size_z,Ball_raduis, size = 1.4, scale_x=1);
+//    
+//    translate([0,-1.1,0])
+//        pin_heads (wall_thinkness,channel_size,        cascades_lengths,break_factor,break_angel,size_x,size_y,size_z,Ball_raduis, size = 1.4, scale_x=1);                  
 
 
-    ////////////////////////////////
-    // plexy glass holder
-    ////////////////////////////////
-    
-    // scaling fixed
-    translate([40*size_x/235.55,0,0])
-        pin_heads (wall_thinkness,channel_size,cascades_lengths,break_factor,break_angel,size_x,size_y,1,Ball_raduis, size = [7.7,7.7,1.7], scale_x=1);   
-                                 
+
+//    // scaling fixed
+//    translate([40*size_x/235.55,0,0])
+//        pin_heads (wall_thinkness,channel_size,cascades_lengths,break_factor,break_angel,size_x,size_y,1,Ball_raduis, size = [7.7,7.7,1.7], scale_x=1);   
+//                                 
+
     }
 
     ////////////////////////////////
@@ -161,7 +159,7 @@ difference(){
     
     factor_pins = 1.0;
     // random vector for pin shape resolution 
-    random_vec = rands(1,5,50000,9);
+    random_vec = rands(1,5,50000,10);
     i = 0;
     
     for (x = [62.5+5:Ball_raduis*4+2:223/350*size_x] )
@@ -231,24 +229,24 @@ difference(){
 
 
         // FALL TO PITH CUT
-        translate([0,0,-32]) 
+        translate([size_x+2,0,0]) 
             pin_heads(wall_thinkness,channel_size,cascades_lengths,break_factor,break_angel,size_x,size_y,floor_thinkess,Ball_raduis, size = [8,8,floor_thinkess], scale_x=1);
     
         
          // JUMPER CABLE PATHS VERTICAL
-        translate([-32,0,-floor_thinkess/2]) 
-            pin_heads(wall_thinkness,channel_size,cascades_lengths,break_factor,break_angel,size_x,size_y,floor_thinkess,Ball_raduis, size = [3.4,3.4,3.4], scale_x=size_x/6);
+        translate([-0,0,-floor_thinkess/2]) 
+            pin_heads(wall_thinkness,channel_size,cascades_lengths,break_factor,break_angel,size_x,size_y,floor_thinkess,Ball_raduis, size = [3.4,3.4,3.4], scale_x=size_x/25);
 
         
-         // JUMPER CABLE PATHS horizontal
-        translate([size_x*factor_fan*1.1,0,-floor_thinkess])
-        scale([3.4,size_y*2,floor_thinkess]) 
-            cube([1]);
-
-        translate([size_x*factor_fan*1.2,0,-floor_thinkess])
-        scale([3.4,size_y*2,floor_thinkess]) 
-            cube([1]);
-    
+//         // JUMPER CABLE PATHS horizontal
+//        translate([size_x*factor_fan*1.1,0,-floor_thinkess])
+//        scale([3.4,size_y*2,floor_thinkess]) 
+//            cube([1]);
+//
+//        translate([size_x*factor_fan*1.2,0,-floor_thinkess])
+//        scale([3.4,size_y*2,floor_thinkess]) 
+//            cube([1]);
+//    
     }
     
     } // END OF peripheres SUMM
@@ -294,10 +292,13 @@ difference(){
         // SPIRAL BOX 
         ////////////////////////////////
         
-        translate([0,2,7])
-        rotate(-5, [1,0,0])
-        translate([size_x-wall_thinkness*1.5,0,-floor_thinkess*1.5 ])
-        scale([Ball_raduis*4,size_y+wall_thinkness+Ball_raduis,Ball_raduis*3.5]) 
+        translate([-2.5,2,7])
+
+        rotate(-3, [1,0,0])
+        translate([size_x-wall_thinkness*1.5-Ball_raduis*0.85,0,-floor_thinkess*1.5 ])
+            rotate(-1.5, [0,0,1])
+
+        scale([Ball_raduis*5,size_y+wall_thinkness+Ball_raduis,Ball_raduis*3.5]) 
             cube([1]);
     
         //////////////////////////////// 
