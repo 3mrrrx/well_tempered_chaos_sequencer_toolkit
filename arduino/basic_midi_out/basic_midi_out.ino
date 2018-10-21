@@ -28,7 +28,7 @@ int vel = 0 ;              // variable to store the velocity value
  {
 
      // Send note on 42 with velocity 127 on channel 1
-     MIDI.sendNoteOn(42, vel, 1);
+     MIDI.sendNoteOn(42, 127, 1);
 
      // wait for 500 ms
       delay(500);
