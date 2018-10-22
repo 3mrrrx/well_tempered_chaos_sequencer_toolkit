@@ -21,7 +21,7 @@ int vel = 0 ;              // variable to store the velocity value
  // this function is called on arduino start
  void setup()
  {
- 
+     MIDI.begin();
  }
 
  void loop()
@@ -31,14 +31,14 @@ int vel = 0 ;              // variable to store the velocity value
      MIDI.sendNoteOn(42, 127, 1);
 
      // wait for 500 ms
-      delay(500);
+      delay(100);
 
      // Send note off 42 with velocity 127 on channel 1
      MIDI.sendNoteOff(42, 127, 1);
 
      
-     // wait for 1000 ms
-      delay(1000);
+     // wait for 500 ms
+      delay(100);
 
   
 }
